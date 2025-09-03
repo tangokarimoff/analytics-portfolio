@@ -12,6 +12,7 @@
 IFNULL([Returned (Y/N)], "NO")
 ```
 - Устанавливаем связи
+
 ![concept_model](https://github.com/tangokarimoff/datalearn/blob/main/de101/Module03/pics/ConcModel_Tableu.png)
 
 ## 3.3. Построение дашборда
@@ -20,11 +21,14 @@ IFNULL([Returned (Y/N)], "NO")
 - к индикатору продаж и прибыли, добавились: коэффицент прибыли, прибыль на один заказ, продажи на одного клиента и т.д.
 - прибыльные и менее прибыльные субкатегории теперь выделены цветом.
 - на одном экране отдельные графики продаж по сегментам и категориям.
+
 ![dashboard](https://github.com/tangokarimoff/datalearn/blob/main/de101/Module03/pics/tableu_dashboard.png)
 
 Для просмотра данных по отдельно взятому региону/регионам, достаточно выбрать нужные на карте - метрики пересчитаются автоматически, а заголовки обновятся.
 Вот как меняются показатели, если выбрать Калифорнию:
+
 ![california](https://github.com/tangokarimoff/datalearn/blob/main/de101/Module03/pics/Tableu_california.png)
 
 Также если навести на какой-лиюо штат, то в тултипе увидим не только коэффицент прибыльности по штату, но и по каждому городу в нем.
+
 ![tooltip](https://github.com/tangokarimoff/datalearn/blob/main/de101/Module03/pics/tool_tip.png)
