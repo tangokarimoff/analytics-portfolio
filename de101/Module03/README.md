@@ -24,11 +24,13 @@ IFNULL([Returned (Y/N)], "NO")
 
 ![dashboard](https://github.com/tangokarimoff/datalearn/blob/main/de101/Module03/pics/tableu_dashboard.png)
 
+---
 Для просмотра данных по отдельно взятому региону/регионам, достаточно выбрать нужные на карте - метрики пересчитаются автоматически, а заголовки обновятся.
 Вот как меняются показатели, если выбрать Калифорнию:
 
 ![california](https://github.com/tangokarimoff/datalearn/blob/main/de101/Module03/pics/Tableu_california.png)
 
+---
 Также если навести на какой-лиюо штат, то в тултипе увидим не только коэффицент прибыльности по штату, но и по каждому городу в нем.
 
 ![tooltip](https://github.com/tangokarimoff/datalearn/blob/main/de101/Module03/pics/tool_tip.png)
