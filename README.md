@@ -1,7 +1,7 @@
 # Datalearn labs
 ***
 *Here are some works, which were done during my self educaton on Datalearn*
-- Module01 is for analytic in Excel
+- Module01 is for analytics in MS Excel
 - Module02 is for PostgreSQL and YDatalens
 - Module03 is for Tableu
 
