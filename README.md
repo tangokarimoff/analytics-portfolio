@@ -1,4 +1,4 @@
-# My Data education progress
+# My progress in Data education 
 ***
 *Here are some works, which were done during my self educaton on Datalearn*
 - Module01 is for analytics in MS Excel
