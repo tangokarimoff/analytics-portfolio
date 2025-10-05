@@ -1,4 +1,4 @@
-# Datalearn labs
+# My Data education progress
 ***
 *Here are some works, which were done during my self educaton on Datalearn*
 - Module01 is for analytics in MS Excel
