@@ -25,7 +25,7 @@ PostgreSQL • ClickHouse • Python(Pandas) • Apache Airflow • ETL • Clou
 - SQL data mart
 - BI dashboards
 
-➡️ [/supply-chain-analytics](https://github.com/tangokarimoff/analytics-portfolio/tree/main/dsupply-chain-analytics)
+➡️ [/supply-chain-analytics](https://github.com/tangokarimoff/analytics-portfolio/tree/main/supply-chain-analytics)
 
 ---
 
