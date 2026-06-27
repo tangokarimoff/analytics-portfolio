@@ -2,19 +2,18 @@
 
 ## 👋 About This Project
 
-This project represents a **real-world analytics implementation fragment** focused on spare parts localization and supply chain visibility.
-
-It demonstrates the full analytics lifecycle:
-from raw operational data (1C, Excel) → ETL processing → ClickHouse data mart → BI dashboards in Yandex DataLens.
+This project shows an end-to-end analytics pipeline for supply chain and spare parts localization.
+It covers the full workflow from operational data sources (1C, Excel) through ETL processing and ClickHouse modeling to BI dashboards in Yandex DataLens.
 
 ---
 
-# 🧑‍💻 My Role
+## 🧑‍💻 My Role
 
 I designed and implemented the analytical layer of the system, including:
 - data modeling (logical and physical schema)
 - SQL-based data mart development
-- ETL logic and orchestration for consolidating fragmented operational data (SQL + Apache Airflow)
+- ETL logic and orchestration using Apache Airflow
+- consolidation of fragmented operational data sources
 - BI dashboard delivery in Yandex DataLens
 
 ---
@@ -25,7 +24,7 @@ I designed and implemented the analytical layer of the system, including:
 
 Data pipeline:
 
-- Source systems: different 1C modules, Excel books
+- Source systems: 1C reports, Excel books
 - ETL layer: SQL transformations
 - Data warehouse: ClickHouse
 - BI layer: Yandex DataLens
@@ -50,7 +49,6 @@ The system is based on a **star schema** optimized for analytical queries.
 # ⚙️ Data Mart Logic (Orders Layer)
 
 This SQL script builds a unified analytical layer for purchase orders by:
-
 - consolidating delivery streams
 - normalizing supplier and order data
 - calculating fulfillment status
@@ -278,15 +276,15 @@ ORDER BY mirKlyuchStrokiZakazaPostavshchikuGuid_ZakazPostavshchikuTovary
 ```
 </details>
 
-# 📊 BI Dashboard (Yandex DataLens)
+## 📊 BI Dashboard (Yandex DataLens)
 
-The final dataset was used to build an operational dashboard in Yandex DataLens, providing real-time visibility into spare parts availability and supplier performance metrics.
+The dashboard provides operational visibility into supply chain performance, including supplier reliability, order fulfillment status, and inventory availability.
 
-### Business Outcomes
+### Business Impact
 
-- Coordinators now have a unified view of part availability, ordering options, and open positions in a single interface
-- Reduced manual data consolidation effort by ~4 hours per week
-- Supplier performance review preparation time reduced from 1.5 hours to ~10 minutes
+- Coordinators gained a unified view of spare parts availability and ordering options
+- Manual reporting workload reduced by ~4 hours per week
+- Supplier performance tracking and review preparation reduced from 1.5 hours to ~10 minutes
 ---
 
 ## Supplier Performance Dashboard
