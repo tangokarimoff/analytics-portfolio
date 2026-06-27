@@ -1,0 +1,128 @@
+--создание order
+drop table "order" cascade;
+
+CREATE TABLE "order" (
+    order_id   varchar(16) PRIMARY KEY,
+    order_date date NOT NULL,
+    ship_date  date null,
+    segment varchar(11) not NULL
+);
+
+--создание customer
+drop table customer cascade;
+CREATE TABLE customer (
+    customer_id   varchar(10) PRIMARY KEY,
+    customer_name varchar(22) NOT NULL
+);
+
+--создание location
+CREATE TABLE location (
+    geo_id      int PRIMARY KEY,
+    region      varchar(10) NOT NULL,
+    country     varchar(10) NOT NULL,
+    "state"     varchar(10) NOT NULL,
+    city        varchar(10) NOT NULL,
+    postal_code varchar(12) NOT NULL
+);
+
+--создание product
+drop table product cascade;
+CREATE TABLE product (
+    product_id   varchar(15) PRIMARY KEY,
+    product_name varchar(127) NOT NULL,
+    category     varchar(15) NOT NULL,
+    sub_category varchar(15) NOT NULL
+);
+
+--создание shipping
+CREATE TABLE shipping (
+    ship_id   integer PRIMARY KEY,
+    ship_mode varchar(50) NOT NULL
+);
+
+--создание sales_fact
+drop table sales_fact cascade;
+CREATE TABLE sales_fact (
+    row_id      int PRIMARY KEY,
+    geo_id      int NULL REFERENCES location(geo_id),
+    order_id    varchar(16) NULL REFERENCES "order"(order_id),
+    product_id  varchar(50) NULL REFERENCES product(product_id),
+    ship_id     integer NULL REFERENCES shipping(ship_id),
+    customer_id varchar(10) NULL REFERENCES customer(customer_id),
+    sales       decimal NULL,
+    qty         int NOT NULL,
+    discount    decimal NULL,
+    profit      decimal NULL
+);
+
+--создание location
+create table location (
+    geo_id      int PRIMARY KEY,
+    region      varchar(7) NOT NULL,
+    country     varchar(13) NOT NULL,
+    "state"     varchar(20) NOT NULL,
+    city        varchar(17) NOT NULL,
+    postal_code varchar(5) NULL
+);
+
+ALTER TABLE location 
+ALTER COLUMN postal_code TYPE integer USING (postal_code::integer);
+
+--вставка значений в shipping
+insert into shipping
+select 100+row_number() over (), ship_mode from (select distinct ship_mode from orders);
+
+--вставка значений в order
+insert into "order"
+select order_id, order_date, ship_date, segment from (select distinct order_id, order_date, ship_date, segment from orders);
+
+--вставка значений в location
+INSERT INTO location (geo_id, region, country, state, city, postal_code)
+SELECT 
+    100 + row_number() OVER (),
+    region, country, state, city, postal_code
+FROM (
+    SELECT 
+        region, country, state, city, postal_code
+    FROM orders
+    GROUP BY region, country, state, city, postal_code
+) AS unique_locations;
+
+--вставка значений в product
+truncate table product;
+
+INSERT INTO product(product_id, product_name, category, sub_category)
+SELECT 
+    product_id,
+    product_name,
+    category,
+    subcategory
+FROM (
+    SELECT 
+        product_id,
+        product_name,
+        category,
+        subcategory,
+        order_date,
+        ROW_NUMBER() OVER (
+            PARTITION BY product_id 
+            ORDER BY order_date DESC
+        ) AS rn
+    FROM orders
+) AS ranked
+WHERE rn = 1;
+
+--вставка значений в customer
+insert into customer
+select customer_id, customer_name from (select distinct customer_id, customer_name from orders)
+
+
+
+--вставка значений в sales_fact
+insert into sales_fact
+select row_id, geo_id, order_id, product_id, ship_id, customer_id, sales, quantity as qty, discount, profit
+from orders o 
+	inner join shipping s on o.ship_mode = s.ship_mode 
+	inner join location l on o.country = l.country and o.city = l.city and o.region = l.region and o.state = l.state and o.postal_code = l.postal_code;
+
+
