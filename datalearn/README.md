@@ -5,6 +5,6 @@
 - Module02 is for PostgreSQL and Yandex Datalens
 - Module03 is for Tableu
 
-**[Module01](https://github.com/tangokarimoff/datalearn/tree/main/de101/Module01)**|**[Module02](https://github.com/tangokarimoff/datalearn/tree/main/de101/Module02)**|**[Module03](https://github.com/tangokarimoff/datalearn/tree/main/de101/Module03)**
+**[Module01](https://github.com/tangokarimoff/analytics-portfolio/tree/main/datalearn/de101/Module01)**|**[Module02](https://github.com/tangokarimoff/analytics-portfolio/tree/main/datalearn/de101/Module02)**|**[Module03](https://github.com/tangokarimoff/analytics-portfolio/tree/main/datalearn/de101/Module03)**
 |---|---|---|
 Done✅|Done✅|Done✅
