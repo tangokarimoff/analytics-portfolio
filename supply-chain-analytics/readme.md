@@ -274,8 +274,9 @@ SELECT
 FROM dim_orders
 WHERE po_number NOT LIKE '%/%'
 ORDER BY mirKlyuchStrokiZakazaPostavshchikuGuid_ZakazPostavshchikuTovary
-</details>
+
 ```
+</details>
 
 # 📊 BI Dashboard (Yandex DataLens)
 
@@ -288,18 +289,18 @@ The final dataset was used to build an operational dashboard in Yandex DataLens,
 - Supplier performance review preparation time reduced from 1.5 hours to ~10 minutes
 ---
 
-## Overview
+## Supplier Performance Dashboard
 
-![Dashboard Overview](images/dashboard_1.png)
-
----
-
-## Operational View
-
-![Operations View](images/dashboard_2.png)
+![Supplier Performance Dashboard](images/dashboard_1.png)
 
 ---
 
-## Supplier & Inventory View
+## Materials & Inventory Overview Dashboard
 
-![Supplier View](images/dashboard_3.png)
+![Materials & Inventory Dashboard](images/dashboard_3.png)
+
+---
+
+## Non-Conformance Deliveries Analysis Dashboard
+
+![Non-Conformance Dashboard](images/dashboard_2.png)
